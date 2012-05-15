@@ -1,6 +1,6 @@
 <?php
 /*
-	minimindex 1.0
+	minimindex 1.1
 	Copyright (C) 2010 Joel Cogen [http://joelcogen.com]
 	Based on PHPDL by Greg Johnson [http://greg-j.com]
 	Licensed under the Creative Commons Attribution-ShareAlike 3.0 United States
@@ -31,8 +31,9 @@ tbody .file td.size,
 tbody .file td.time{white-space:nowrap; width:1%; padding:5px 10px}
 tbody .file td.size span{color:#999; font-size:12px}
 tbody .file td.time{color:#555}
-tfoot td{padding:10px 0 0 0; color:#777; font-size:10px; background:#f8f8f8; border-color:#f8f8f8}
+tfoot td{padding:10px 0 0 0; color:#777; font-size:10px; background:#f8f8f8; border-color:#f8f8f8; vertical-align:top}
 tfoot td.copy{text-align:right; white-space:nowrap}
+tfoot td.total{line-height:15px}
 tfoot td.cc{padding:40px; text-align:center}
 tfoot td.cc img{padding:0; border:none}
 tfoot td a{font-weight:normal}
@@ -61,8 +62,13 @@ tr.filehead td{font-size:10px; padding:0 5px; color:#999}
 	</thead>
 	<tfoot>
 		<tr>
-			<td class="total"><?=count($file_list)?> files / <?=$total_size['num']?> <?=$total_size['str']?> / Sums: <a href="?md5">MD5</a> - <a href="?sha1">SHA1</a></td>
-			<td colspan="4" class="copy"><a href="http://joelcogen.com/pub/minimindex/" target="_blank">minimindex</a> 1.0 / &copy; 2010 Joel Cogen / <a target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/us/">(cc) by-sa</a></td>
+			<td class="total">
+				<?=count($file_list)?> files / <?=$total_size['num']?> <?=$total_size['str']?> / Sums: <a href="?md5">MD5</a> - <a href="?sha1">SHA1</a><br/>
+				<? list ($monthcount, $monthsize)=db_monthstat(); $monthsize=bytes_to_string($monthsize, 2); ?>Downloaded this month: <?=$monthcount?> files, totaling <?=$monthsize["num"]?> <?=$monthsize["str"]?>
+			</td>
+			<td colspan="4" class="copy">
+				<a href="http://joelcogen.com/pub/minimindex/" target="_blank">minimindex</a> 1.1 / &copy; 2010 Joel Cogen / <a target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/us/">(cc) by-sa</a>
+			</td>
 		</tr>
 	</tfoot>
 	<tbody>

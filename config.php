@@ -1,6 +1,6 @@
 <?php
 /*
-	minimindex 1.0
+	minimindex 1.1
 	Copyright (C) 2010 Joel Cogen [http://joelcogen.com]
 	Based on PHPDL by Greg Johnson [http://greg-j.com]
 	Licensed under the Creative Commons Attribution-ShareAlike 3.0 United States
@@ -12,7 +12,6 @@
 $config = array(
 	// Base URL with starting '/' and no trailing '/'
 	// Eg for http://joelcogen.com/pub, use '/pub'
-	// Don't forget to change it in .htaccess too!
 	"basedir"	=>  "/pub",
 	
 	// Real filesystem directory (no trailing '/')
@@ -20,7 +19,7 @@ $config = array(
 	"realdir"	=>  "files",
 	
 	// Save DL count into a database
-	"usedb"		=>  false,
+	"usedb"		=>  true,
 	// DB parameters (don't edit if you said 'false' above)
 	"db_host"	=>  "localhost",
 	"db_user"	=>  "midx",
